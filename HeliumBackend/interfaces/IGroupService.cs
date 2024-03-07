@@ -1,7 +1,7 @@
 using HeliumBackend.models;
 using MongoDB.Driver;
-using Group = System.Text.RegularExpressions.Group;
-using Tag = MongoDB.Driver.Tag;
+using Group = HeliumBackend.models.Group;
+using Tag = HeliumBackend.models.Tag;
 
 namespace HeliumBackend.interfaces;
 

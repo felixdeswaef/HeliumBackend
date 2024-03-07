@@ -3,8 +3,7 @@ using HeliumBackend.models;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Group = System.Text.RegularExpressions.Group;
-
+using Group = HeliumBackend.models.Group;
 namespace HeliumBackend.services;
 
 public class GroupService : IGroupService
@@ -23,9 +22,9 @@ public class GroupService : IGroupService
         return group;
     }
 
-    public Task<Group?> GetById(string id)
+    public async Task<Group?> GetById(string id)
     {
-        throw new NotImplementedException();
+        return await _GroupCollection.Find(s => s.Id == id).FirstOrDefaultAsync();
     }
 
     public Task<DeleteResult> Delete(string id)
@@ -38,37 +37,37 @@ public class GroupService : IGroupService
         throw new NotImplementedException();
     }
 
-    public Task<Show?> UpdateName(string id, string name)
+    public Task<UpdateResult> UpdateName(string id, string name)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> AddUser(string id, User user)
+    public Task<UpdateResult> AddUser(string id, User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> RemUser(string id, User user)
+    public Task<UpdateResult> RemUser(string id, User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> AddAdmin(string id, User user)
+    public Task<UpdateResult> AddAdmin(string id, User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> RemAdmin(string id, User user)
+    public Task<UpdateResult> RemAdmin(string id, User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> AddShow(string id, Show show)
+    public Task<UpdateResult> AddShow(string id, Show show)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Group?> RemShow(string id, Show show)
+    public Task<UpdateResult> RemShow(string id, Show show)
     {
         throw new NotImplementedException();
     }
