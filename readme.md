@@ -2,7 +2,7 @@
 ***
 #### a timeline tracker for theatre and events.
 
-write out scenes and cue's. 
+write out scenes and cue's.
 helium let's users see live synced data.
 
 vieuws prioritising different information can be selected
@@ -17,7 +17,7 @@ Cues are confirmed by users. time between cues is recorded and an average is use
 
 
 ***
-## He Ne Ar Kr 
+## He Ne Ar Kr
 #### Part of group 18.
 #### **Group 18** is a series of open source projects centered around the event space.
 
