@@ -1,0 +1,6 @@
+@HeliumBackend_HostAddress = http://localhost:5088
+
+GET {{HeliumBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
