@@ -13,6 +13,15 @@ for example
 
 Cues are confirmed by users. time between cues is recorded and an average is used to show live progression between cues
 
+***
+## Hosting
+Helium frontendis hosted on 
+- port 8002
+
+backend on: 
+- port 8802
+
+helium is expected to be run behind a reverse proxy.
 
 
 

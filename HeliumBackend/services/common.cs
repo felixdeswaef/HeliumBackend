@@ -37,16 +37,22 @@ public class common
         return await _col.DeleteOneAsync(filter);
 
     }
-    public static async Task<T> GetById<T>(IMongoCollection<T> _col,string id)
+    public static async Task<T?> GetById<T>(IMongoCollection<T> _col,string id)
     {
         var filter = Builders<T>.Filter.Eq("Id", id);
         return await _col.Find(filter).FirstOrDefaultAsync();
 
     }
-    public static async Task<T> Update<T>(IMongoCollection<T> _col,string id,T newcopy)
+    public static async Task<ReplaceOneResult> Update<T>(IMongoCollection<T> _col,string id,T newcopy)
     {
         var filter = Builders<T>.Filter.Eq("Id", id);
         return await _col.ReplaceOneAsync(filter,newcopy);
 
+    }
+    public static async Task<UpdateResult> ChangeField<T,X>(IMongoCollection<T> _col,string id,string field , X newval)
+    {
+        var filter = Builders<T>.Filter.Eq("Id", id);
+        var update = Builders<T>.Update.Set(field, newval);
+        return await _col.UpdateOneAsync(filter, update);
     }
 }

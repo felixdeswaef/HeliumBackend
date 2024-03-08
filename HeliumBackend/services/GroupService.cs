@@ -29,46 +29,48 @@ public class GroupService : IGroupService
 
     public Task<DeleteResult> Delete(string id)
     {
-        throw new NotImplementedException();
+        return common.Delete<Group>(_GroupCollection, id);
     }
 
     public Task<ReplaceOneResult> Update(string id, Group group)
     {
-        throw new NotImplementedException();
+        return common.Update<Group>(_GroupCollection, id,group);
+
     }
 
     public Task<UpdateResult> UpdateName(string id, string name)
     {
-        throw new NotImplementedException();
+        return common.ChangeField<Group,string>(_GroupCollection, id,"GroupName",name);
     }
 
-    public Task<UpdateResult> AddUser(string id, User user)
+    public async Task<UpdateResult> AddUser(string id, User user)
     {
-        throw new NotImplementedException();
+        return await common.AddUser<Group>(_GroupCollection, id, "Users", user);    
+
     }
 
-    public Task<UpdateResult> RemUser(string id, User user)
+    public async Task<UpdateResult> RemUser(string id, User user)
     {
-        throw new NotImplementedException();
+        return await common.RemUser<Group>(_GroupCollection, id, "Users", user);
     }
 
-    public Task<UpdateResult> AddAdmin(string id, User user)
+    public async Task<UpdateResult> AddAdmin(string id, User user)
     {
-        throw new NotImplementedException();
+        return await common.AddUser<Group>(_GroupCollection, id, "Owners", user);    
     }
 
-    public Task<UpdateResult> RemAdmin(string id, User user)
+    public async Task<UpdateResult> RemAdmin(string id, User user)
     {
-        throw new NotImplementedException();
+        return await common.RemUser<Group>(_GroupCollection, id, "Owners", user);
     }
 
-    public Task<UpdateResult> AddShow(string id, Show show)
+    public async Task<UpdateResult> AddShow(string id, Show show)
     {
-        throw new NotImplementedException();
+        return await common.AddList<Group>(_GroupCollection, id, "Shows", show.Id);
     }
 
-    public Task<UpdateResult> RemShow(string id, Show show)
+    public async Task<UpdateResult> RemShow(string id, Show show)
     {
-        throw new NotImplementedException();
+        return await common.RemList<Group>(_GroupCollection, id, "Shows", show.Id);
     }
 }

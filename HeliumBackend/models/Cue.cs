@@ -14,11 +14,20 @@ public class Cue
     [Required(ErrorMessage = "text is required")]
     public string Markdown { get; set; } = null!;
     public List<string> FunctionTag { get; set; } = null!;
-    //group users
+    //Cue Tags
     [BsonRepresentation(BsonType.ObjectId)]
     public List<string> Tags { get; set; } = null!;
     [BsonIgnore]
     public List<User> TagsList { get; set; } = null!;
+    
+    //Cue Recorded Durations
+    [BsonRepresentation(BsonType.ObjectId)]
+    public List<string> Durations { get; set; } = null!;
+    [BsonIgnore]
+    public List<Duration> DurationsList { get; set; } = null!;
+    
+    
+    
     [Required(ErrorMessage = "position is required")]
-    public int position;
+    public int Position;
 }

@@ -14,6 +14,9 @@ public class UserService : IUserService
     {
         var database = client.GetDatabase(dbSettings.Value.DBName);
         _UserCollection = database.GetCollection<User>(dbSettings.Value.UsersCollectionName);
+        bool isMongoLive = database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
+        Console.WriteLine("Connection was " + (isMongoLive ? "successful!" : "NOT successful!"));
+
     }
     public async Task<User?> Create(User user)
     {

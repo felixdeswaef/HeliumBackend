@@ -21,6 +21,7 @@ public class Show
     public List<string> Cards { get; set; } = null!;
     [BsonIgnore]
     public List<CueCard> CardsList { get; set; } = null!;
+    
     //Show Sessions
     [BsonRepresentation(BsonType.ObjectId)]
     public List<string> Sessions { get; set; } = null!;

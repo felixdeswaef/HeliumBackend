@@ -59,7 +59,8 @@ public class ShowService : IShowService
 
     public async Task<UpdateResult> AddOwner(string id, User user)
     {
-        return await common.AddUser<Show>(_ShowCollection, id, "Owners", user);    }
+        return await common.AddUser<Show>(_ShowCollection, id, "Owners", user);    
+    }
 
     public async Task<UpdateResult> RemOwner(string id, User user)
     {

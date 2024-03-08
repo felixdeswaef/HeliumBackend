@@ -16,9 +16,10 @@ public interface ICueService
     
     Task<ReplaceOneResult> Update(string id,Cue cue);
 
-    Task<UpdateResult> ChangeCueTag(string id, Tag tag);
-    Task<UpdateResult> ChangeCueText(string id, Tag tag);
-    Task<UpdateResult> ChangeCueColor(string id, Tag tag);
+    Task<UpdateResult> AddCueTag(string id, Tag tag);
+    Task<UpdateResult> RemCueTag(string id, Tag tag);
+    Task<UpdateResult> ChangeCueText(string id, string text);
+    Task<UpdateResult> ChangeCuePos(string id, int pos);
     //Task<UpdateResult> ChangeCueDuration(string id, Tag tag);
     //Task<UpdateResult> AddCueRecordedTime(string id, Duration duration);
     
@@ -32,11 +33,11 @@ public interface ICueCardService
 
     Task<CueCard?> GetById(string id);
     
-    Task<List<Cue>> GetCuesFromCardId(string id);
+    List<string> GetCuesFromCardId(string id);
     
     Task<DeleteResult> Delete(string id);
     
-    Task<ReplaceOneResult> Update(string id,Cue cue);
+    Task<ReplaceOneResult> Update(string id,CueCard cueCard);
     
 }
 
@@ -49,10 +50,10 @@ public interface ITagService
     
     Task<DeleteResult> Delete(string id);
     
-    Task<ReplaceOneResult> Update(string id,Cue cue);
+    Task<ReplaceOneResult> Update(string id,Tag tag);
     //special
     Task<List<Tag>> GetPublicTags();
-    Task<List<Tag>> GetShowTags();
+    Task<List<Tag>> GetShowTags(string id);
     Task<List<Tag>> GetTags();
     
     
